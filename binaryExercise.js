@@ -18,5 +18,6 @@ var ninja = function (num) {
   return Number(('' + num).split('').map(function (val) { return val * val;}).join(''));
 }
 
+console.log(arguments);
 console.log(ninja(345));
 console.log(('' + 254).split(''));
