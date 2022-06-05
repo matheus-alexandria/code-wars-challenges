@@ -56,11 +56,27 @@ var maxSequence2 = function(arr){
   return ans;
 }
 
+var maxSequence3 = function(arr) {
+  let sum = 0;
+  let min = 0;
+  const ans = arr.reduce((acc, value) => {
+      sum += value;
+      
+      min = Math.min(sum, min);
+      
+      return Math.max(acc, sum - min);
+  }, 0);
+
+  return ans;
+}
+
 
 // console.log(maxSequence2([-1, -2, -3]));
 // console.log(maxSequence2([1, 2, 3]));
 // console.log(maxSequence2([]));
 // console.log(maxSequence2([-1, -5, 4, -2, 1, -6, 5, -8, -3]));
 
-console.log(maxSequence2([-3, 40, 3, -40, -1, 2, 1, -5, 10]));
+console.log(maxSequence2([-2 -3 -1 -4 -6]));
+arr = [10, -20, 15, 15]
+console.log(maxSequence3([-3, 40, 3, -40, -1, 2, 1, -5, 10]));
 // console.log(maxSequence([-2, 1, -3, 4, -40, -1, 2, 1, -5, 4]));
