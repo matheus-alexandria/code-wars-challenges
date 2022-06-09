@@ -13,4 +13,8 @@ function msToTime(duration) {
 
   return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
 }
-console.log(msToTime(300000))
+// console.log(msToTime(300000))
+
+console.log(null && 'Games'); // null
+
+console.log(null || 'Games'); // Games
