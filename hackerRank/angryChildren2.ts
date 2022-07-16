@@ -49,10 +49,15 @@ function angryChildren(k: number, packets: number[]): number  {
       
       for(let j = i + 1; j < group; j++) {
           unfair += Math.abs(packets[i] - packets[j]);
+          // if (i === 6) {
+          //   console.log(packets[i] + ' - ' + packets[j] + ' = ' + Math.abs(packets[i] - packets[j]));
+          // }
       }
+      unfair = unfair / (k - 1);
+      console.log(i + ': ' + unfair);
       
       if (Math.min(minimum, unfair) < minimum) {
-          minimum = Math.min(minimum, unfair);
+          minimum = unfair;
           index = i;
       }
   }
@@ -61,9 +66,17 @@ function angryChildren(k: number, packets: number[]): number  {
   const chosen = packets.slice(index, index + k);
   console.log(chosen);
 
-  return index;
+  let unfairness = 0;
+  for(let i = 0; i < chosen.length - 1; i++) {
+    for(let j = i + 1; j < chosen.length; j++) {
+        // console.log(chosen[i] - chosen[j]);
+        unfairness += Math.abs(chosen[i] - chosen[j]);
+    }
+  }
+
+  return unfairness;
 }
 
 // 2 4 7 8 9
-let arr = [15, 8, 9, 2, 4, 7, 43];
-console.log(angryChildren(3, arr));
+let arr = [4504, 1520, 5857, 4094, 4157, 3902, 822, 6643, 2422, 7288, 8245, 9948, 2822, 1784, 7802, 3142, 9739, 5629];
+console.log(angryChildren(5, arr));
