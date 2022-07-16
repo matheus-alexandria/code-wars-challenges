@@ -18,3 +18,5 @@ function msToTime(duration) {
 console.log(null && 'Games'); // null
 
 console.log(null || 'Games'); // Games
+
+console.log(arguments);
